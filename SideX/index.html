@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="overlay">
+        <h1>Enter</h1>
+    </div>
+    <div class="container">
+        <div class="img"><img src="pfp.gif" alt=""></div>
+        <div class="title"><h2>@mangiaorgani</h2></div>
+        <div class="divButton"><button id="audio-toggle">stop</button></div>
+    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="bgMusic.mp3" type="audio/mpeg">
+        Il tuo browser non supporta l'elemento audio.
+    </audio>
+    
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const button = document.getElementById('audio-toggle');
+
+        button.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                button.textContent = 'stop';
+            } else {
+                audio.pause();
+                button.textContent = 'play';
+            }
+        });
+
+        const overlay = document.getElementById('overlay');
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            audio.play(); // Avvia la riproduzione dell'audio dopo l'interazione
+        });
+    </script>
+</body>
+</html>
